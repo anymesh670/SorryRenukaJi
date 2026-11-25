@@ -1,0 +1,371 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Sorry Renuka</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Lilita+One&display=swap">
+<style>
+/* Layout: full-screen black intro that heart-wipes into a one-screen pink story stage: caption on top, characters centre, white pill buttons below. */
+:root{--ink:#0b0610;--pink:#ff5c8a;--rose:#c2185b;--blush:#ffc9de;--deep:#8a2b53;--cocoa:#9c6644;--display:'Lilita One','Fredoka',system-ui,sans-serif;--body:'Fredoka',system-ui,sans-serif}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--ink);color:#fff;font-family:var(--body)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+.fxbox{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.fh{position:absolute;left:0;top:0;pointer-events:none;line-height:0}
+.sp{position:absolute;left:0;top:0;pointer-events:none;line-height:0}
+
+/* INTRO */
+#intro{position:fixed;inset:0;z-index:50;background:radial-gradient(ellipse at 50% 40%,#2a0c1d 0%,var(--ink) 70%);display:flex;align-items:center;justify-content:center;text-align:center;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+.introIn{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:clamp(14px,3vh,26px)}
+#hey{margin:0;font-family:var(--display);font-weight:400;line-height:.95;letter-spacing:.02em;display:flex;flex-direction:column;align-items:center}
+.ln{display:block;white-space:nowrap}
+#la{font-size:clamp(54px,18vw,130px);color:#fff;text-shadow:0 4px 0 #6e1a3e,0 0 30px rgba(255,92,138,.5)}
+#lb{font-size:clamp(40px,12.6vw,104px);color:var(--pink);text-shadow:0 4px 0 #7c1a42,0 0 34px rgba(255,92,138,.8)}
+.hl{display:inline-block;will-change:transform}
+#sub{margin:0;min-height:3em;max-width:22em;font-size:clamp(16px,4.4vw,22px);font-weight:500;color:#ffd6e5;letter-spacing:.02em}
+#open{font:600 clamp(17px,4.8vw,22px)/1 var(--body);color:#fff;border:0;border-radius:999px;padding:17px 34px;cursor:pointer;background:linear-gradient(135deg,#ff6b95,#ff2e75);box-shadow:0 0 18px #ff5c8a,0 0 46px rgba(255,92,138,.65);animation:glow 1.6s ease-in-out infinite}
+#open:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@keyframes glow{0%,100%{box-shadow:0 0 14px #ff5c8a,0 0 34px rgba(255,92,138,.5);transform:scale(1)}50%{box-shadow:0 0 26px #ff7aa3,0 0 70px rgba(255,92,138,.9);transform:scale(1.06)}}
+#wipe{position:fixed;inset:0;z-index:70;display:flex;align-items:center;justify-content:center;pointer-events:none}
+#wipe svg{width:100px;height:100px;transform:scale(0)}
+
+/* STAGE */
+#stage{position:fixed;inset:0;overflow:hidden;background:var(--blush)}
+#bg{position:absolute;inset:-300px;animation:drift 40s linear infinite}
+@keyframes drift{to{transform:translate(300px,300px)}}
+#veil{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,rgba(255,235,244,.55) 0%,rgba(255,235,244,0) 62%);pointer-events:none}
+#scene{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(8px,2.2vh,22px);padding-block:calc(env(safe-area-inset-top,0px) + 44px) calc(env(safe-area-inset-bottom,0px) + 20px);padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+#dots{position:absolute;z-index:3;top:calc(env(safe-area-inset-top,0px) + 14px);left:0;right:0;display:flex;justify-content:center;gap:8px}
+#dots i{width:16px;height:16px;background:rgba(255,255,255,.7);-webkit-mask:var(--h) center/contain no-repeat;mask:var(--h) center/contain no-repeat;transition:background .4s,transform .4s}
+#dots i.on{background:#ff3f74;transform:scale(1.2)}
+#cap{max-width:min(92vw,480px);min-height:3.3em;display:flex;align-items:flex-end;justify-content:center;text-align:center;font:600 clamp(20px,5.6vw,30px)/1.25 var(--body);color:var(--deep);paint-order:stroke fill;-webkit-text-stroke:7px #fff;text-wrap:balance}
+#cap small{display:block;margin-top:.4em;font-size:.68em;font-weight:500}
+#cap span{display:block}
+#chars{display:flex;flex-direction:column;align-items:center;gap:clamp(8px,2vh,16px);max-width:100%}
+.ch svg{height:clamp(150px,34vh,300px);width:auto;display:block;overflow:visible;cursor:pointer}
+.ch.sm svg{height:clamp(96px,17vh,150px)}
+.duo{position:relative;display:flex;align-items:flex-end;gap:2px}
+.duo.apart{gap:clamp(40px,22vw,150px)}
+.duo svg{height:clamp(130px,27vh,230px);width:auto;display:block;overflow:visible;cursor:pointer}
+.letter{width:min(90vw,440px);min-height:8.6em;background:rgba(255,255,255,.88);border:3px dashed #ff9fc0;border-radius:26px;padding:16px 20px;color:var(--deep);font:500 clamp(16px,4.5vw,20px)/1.45 var(--body);text-align:left;box-shadow:0 8px 24px rgba(194,24,91,.18)}
+.letter p{margin:0 0 .5em}
+.typing::after{content:'';display:inline-block;width:2px;height:1.1em;background:var(--rose);margin-left:2px;vertical-align:-.15em;animation:caret .7s steps(1) infinite}
+@keyframes caret{50%{opacity:0}}
+#btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 16px;min-height:66px}
+.btn{font:600 clamp(16px,4.4vw,20px)/1 var(--body);color:var(--rose);background:#fff;border:3px solid #ffd3e3;border-radius:999px;padding:14px 26px;min-height:50px;cursor:pointer;box-shadow:0 5px 0 #f4a7c3,0 12px 22px rgba(194,24,91,.18);animation:hop 1.8s ease-in-out infinite;transition:box-shadow .15s}
+.bw:nth-child(2) .btn{animation-delay:.35s}
+.btn.big{font-size:clamp(18px,5vw,23px);padding:15px 32px}
+.btn:hover{animation:none;transform:translateY(-3px) scale(1.06)}
+.btn:active{animation:none;transform:translateY(4px) scale(.98);box-shadow:0 1px 0 #f4a7c3}
+.btn:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+@keyframes hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+#mus{position:fixed;z-index:80;top:calc(env(safe-area-inset-top,0px) + 8px);right:max(12px,env(safe-area-inset-right,0px));border:0;border-radius:999px;background:#fff;color:var(--rose);font:600 14px/1 var(--body);padding:10px 14px;min-height:40px;cursor:pointer;box-shadow:0 3px 0 #f4a7c3,0 6px 14px rgba(0,0,0,.25)}
+#mus:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+#bfx{position:fixed;inset:0;z-index:60;pointer-events:none}
+
+/* CHARACTERS (SVG) */
+.e,.m,.tear,.brow,.paws{display:none}
+svg[data-mood=normal] :is(.e-open,.m-normal),
+svg[data-mood=shy] :is(.e-open,.m-shy),
+svg[data-mood=sad] :is(.e-open,.m-sad,.tear,.brow),
+svg[data-mood=happy] :is(.e-happy,.m-happy),
+svg[data-mood=love] :is(.e-love,.m-happy),
+svg[data-mood=hide] :is(.m-shy,.paws){display:inline}
+.bob{transform-origin:100px 232px;animation:bob 3.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(-5px) scaleY(1.015)}}
+.headg{transform-origin:100px 150px;animation:tilt 5s ease-in-out infinite}
+@keyframes tilt{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+.blink{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
+.bunny .blink{animation-delay:-1.7s}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.08)}}
+.teddy .armR{animation:wave 2.8s ease-in-out infinite}
+.teddy .armL,.bunny .armL,.bunny .armR{animation:sway 3.2s ease-in-out infinite}
+@keyframes wave{0%,55%,100%{transform:rotate(0)}12%{transform:rotate(-125deg)}22%{transform:rotate(-95deg)}32%{transform:rotate(-125deg)}42%{transform:rotate(-95deg)}}
+@keyframes sway{0%,100%{transform:rotate(2deg)}50%{transform:rotate(-3deg)}}
+.teddy.cheer .armR{animation:cheerR .4s ease-in-out infinite alternate}
+.teddy.cheer .armL{animation:cheerL .4s ease-in-out infinite alternate}
+@keyframes cheerR{from{transform:rotate(-120deg)}to{transform:rotate(-165deg)}}
+@keyframes cheerL{from{transform:rotate(120deg)}to{transform:rotate(165deg)}}
+svg.hug .armL,svg.hug .armR{animation:none}
+.earL{transform-origin:68px 92px;animation:twL 4.5s ease-in-out infinite}
+.earR{transform-origin:132px 92px;animation:twR 5.5s ease-in-out infinite}
+@keyframes twL{0%,80%,100%{transform:rotate(-3deg)}88%{transform:rotate(-14deg)}94%{transform:rotate(2deg)}}
+@keyframes twR{0%,60%,100%{transform:rotate(3deg)}68%{transform:rotate(12deg)}74%{transform:rotate(-2deg)}}
+.hold{transform-origin:100px 192px;animation:beat 1.1s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}30%{transform:scale(1.14)}}
+.tear{animation:tear 1.3s ease-in infinite}
+.tear.t2{animation-delay:.55s}
+@keyframes tear{0%{transform:translateY(0);opacity:0}15%{opacity:1}100%{transform:translateY(46px);opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+
+<section id="intro">
+  <div id="introFx" class="fxbox"></div>
+  <div class="introIn">
+    <h1 id="hey" aria-label="HEY RENUKA! ❤️"><span class="ln" id="la"></span><span class="ln" id="lb"></span></h1>
+    <p id="sub"></p>
+    <button id="open" type="button" hidden>CLICK TO OPEN 💗</button>
+  </div>
+</section>
+
+<div id="stage" hidden>
+  <div id="bg"></div>
+  <div id="veil"></div>
+  <div id="fx" class="fxbox"></div>
+  <div id="dots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <main id="scene"><div id="cap"></div><div id="chars"></div><div id="btns"></div></main>
+</div>
+<div id="bfx"></div>
+<button id="mus" type="button">🎵 Play song</button>
+<input id="musf" type="file" accept="audio/*" hidden>
+<div id="wipe" hidden><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z" fill="#ff5c8a"/></svg></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const HP='M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z';
+const STAR='M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0z';
+const COLORS=['#ff5c8a','#ff8fb8','#ff3b6b','#ffb3cf','#e8335f'];
+const rnd=(a,b)=>a+Math.random()*(b-a), pick=a=>a[Math.floor(Math.random()*a.length)];
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const heartSVG=(c,s)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}"><path d="${HP}" fill="${c}"/></svg>`;
+
+/* ---------- background pattern ---------- */
+(function(){
+  const hs=[[10,15,110,'#ff7fae',.55],[160,10,90,'#ff9dc2',.65],[185,115,105,'#ff6f9f',.5],[30,150,110,'#ff94bd',.6],[170,232,64,'#ff7fae',.6],[115,122,56,'#ffb0cd',.7]];
+  const p=hs.map(([x,y,s,c,o])=>`<path d='${HP}' transform='translate(${x} ${y}) scale(${s/24})' fill='${c}' fill-opacity='${o}'/>`).join('');
+  const svg=`<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><rect width='300' height='300' fill='#ffc9de'/>${p}</svg>`;
+  $('#bg').style.background=`url("data:image/svg+xml,${encodeURIComponent(svg)}") 0 0/300px 300px`;
+  const m=`url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='${HP}'/></svg>`)}")`;
+  document.documentElement.style.setProperty('--h',m);
+})();
+
+/* ---------- particles ---------- */
+function spawnHeart(box,op){
+  const s=rnd(14,40), el=document.createElement('span'); el.className='fh'; el.innerHTML=heartSVG(pick(COLORS),s);
+  const W=box.clientWidth,H=box.clientHeight;
+  gsap.set(el,{x:rnd(0,W)-s/2,y:H+20,opacity:op*rnd(.5,1),rotation:rnd(-20,20)});
+  box.appendChild(el);
+  const d=rnd(7,13);
+  gsap.to(el,{y:-60,duration:d,ease:'none',onComplete:()=>el.remove()});
+  gsap.to(el,{x:'+='+rnd(-50,50),rotation:'+='+rnd(-30,30),duration:d/3,yoyo:true,repeat:2,ease:'sine.inOut'});
+}
+function spawnSpark(box){
+  const s=rnd(8,20), el=document.createElement('span'); el.className='sp';
+  el.innerHTML=`<svg viewBox="0 0 24 24" width="${s}" height="${s}"><path d="${STAR}" fill="#fff"/></svg>`;
+  gsap.set(el,{x:rnd(0,box.clientWidth),y:rnd(0,box.clientHeight),scale:0,rotation:0});
+  box.appendChild(el);
+  gsap.to(el,{scale:1,rotation:90,duration:.8,yoyo:true,repeat:1,ease:'sine.inOut',onComplete:()=>el.remove()});
+}
+function ambient(box,op,hr,sr){
+  if(reduce)return;
+  setInterval(()=>{ if(!document.hidden&&box.getClientRects().length) spawnHeart(box,op) },hr);
+  setInterval(()=>{ if(!document.hidden&&box.getClientRects().length) spawnSpark(box) },sr);
+  for(let i=0;i<6;i++)setTimeout(()=>spawnHeart(box,op),i*250);
+}
+function burst(x,y,n=14){
+  const box=$('#bfx');
+  for(let i=0;i<n;i++){
+    const s=rnd(12,28), el=document.createElement('span'); el.className='fh'; el.innerHTML=heartSVG(pick(COLORS),s); box.appendChild(el);
+    const a=rnd(0,Math.PI*2), r=rnd(50,150);
+    gsap.set(el,{x,y,scale:.3,rotation:rnd(-30,30)});
+    gsap.to(el,{x:x+Math.cos(a)*r,y:y+Math.sin(a)*r-50,scale:1,opacity:0,duration:rnd(.9,1.5),ease:'power2.out',onComplete:()=>el.remove()});
+  }
+}
+function confetti(n=5){ for(let i=0;i<n;i++)setTimeout(()=>burst(rnd(innerWidth*.15,innerWidth*.85),rnd(innerHeight*.2,innerHeight*.6),12),i*260); }
+
+/* ---------- characters ---------- */
+const P=(d,x,y,s)=>`<path d="${d}" transform="translate(${x} ${y}) scale(${s}) translate(-12 -14)"/>`;
+function TEDDY(m='normal'){return `
+<svg class="teddy" viewBox="0 0 200 232" data-mood="${m}" aria-hidden="true"><g class="bob">
+<ellipse cx="66" cy="222" rx="24" ry="11" fill="#8a5636"/><ellipse cx="134" cy="222" rx="24" ry="11" fill="#8a5636"/>
+<ellipse cx="100" cy="172" rx="54" ry="52" fill="#9c6644"/><ellipse cx="100" cy="182" rx="33" ry="36" fill="#ecc9a4"/>
+<g fill="#ff8fb8">${P(HP,100,180,1.7)}</g>
+<ellipse class="armL" style="transform-origin:50px 130px" cx="46" cy="158" rx="13" ry="29" fill="#9c6644"/>
+<ellipse class="armR" style="transform-origin:150px 130px" cx="154" cy="158" rx="13" ry="29" fill="#9c6644"/>
+<g class="headg">
+<circle cx="46" cy="50" r="25" fill="#9c6644"/><circle cx="46" cy="50" r="12" fill="#e0a984"/>
+<circle cx="154" cy="50" r="25" fill="#9c6644"/><circle cx="154" cy="50" r="12" fill="#e0a984"/>
+<circle cx="100" cy="92" r="60" fill="#a9714b"/>
+<ellipse cx="100" cy="110" rx="28" ry="21" fill="#f2d6b6"/>
+<ellipse cx="100" cy="101" rx="9" ry="6" fill="#4a2a1a"/><ellipse cx="97" cy="99" rx="3" ry="1.6" fill="#fff" opacity=".6"/>
+<ellipse cx="60" cy="108" rx="10" ry="6.5" fill="#ff7f9f" opacity=".6"/><ellipse cx="140" cy="108" rx="10" ry="6.5" fill="#ff7f9f" opacity=".6"/>
+<g class="e e-open"><g class="blink"><ellipse cx="76" cy="88" rx="6.5" ry="8" fill="#2b1810"/><circle cx="78" cy="85" r="2.6" fill="#fff"/><ellipse cx="124" cy="88" rx="6.5" ry="8" fill="#2b1810"/><circle cx="126" cy="85" r="2.6" fill="#fff"/></g></g>
+<g class="e e-happy" fill="none" stroke="#2b1810" stroke-width="4.5" stroke-linecap="round"><path d="M67 91Q76 77 85 91"/><path d="M115 91Q124 77 133 91"/></g>
+<g class="e e-love" fill="#ff3b6b">${P(HP,76,89,1)}${P(HP,124,89,1)}</g>
+<g class="brow" fill="none" stroke="#4a2a1a" stroke-width="3.5" stroke-linecap="round"><path d="M64 77L87 70"/><path d="M113 70L136 77"/></g>
+<g fill="none" stroke="#4a2a1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path class="m m-normal" d="M91 118Q100 125 109 118M100 107V113"/>
+<path class="m m-sad" d="M91 125Q100 114 109 125M100 107V113"/>
+<path class="m m-shy" d="M94 119Q100 122 106 119M100 107V113"/>
+<g class="m m-happy"><path d="M88 114Q100 136 112 114Z" fill="#d6455d"/><path d="M95 125Q100 120 105 125Q100 131 95 125" fill="#ff9aa8" stroke="none"/></g></g>
+<ellipse class="tear" cx="72" cy="100" rx="4" ry="6" fill="#8fdcff"/><ellipse class="tear t2" cx="128" cy="100" rx="4" ry="6" fill="#8fdcff"/>
+</g></g></svg>`}
+
+function BUNNY(m='normal',heart=true){return `
+<svg class="bunny" viewBox="0 0 200 250" data-mood="${m}" aria-hidden="true"><g class="bob" style="animation-delay:-1s">
+<g class="earL"><ellipse cx="68" cy="50" rx="17" ry="46" fill="#fff" stroke="#f2b6ca" stroke-width="3"/><ellipse cx="68" cy="56" rx="8" ry="30" fill="#ffc2d6"/></g>
+<g class="earR"><ellipse cx="132" cy="50" rx="17" ry="46" fill="#fff" stroke="#f2b6ca" stroke-width="3"/><ellipse cx="132" cy="56" rx="8" ry="30" fill="#ffc2d6"/></g>
+<ellipse cx="72" cy="243" rx="17" ry="8" fill="#fff" stroke="#f2b6ca" stroke-width="3"/><ellipse cx="128" cy="243" rx="17" ry="8" fill="#fff" stroke="#f2b6ca" stroke-width="3"/>
+<ellipse cx="100" cy="206" rx="42" ry="38" fill="#fff" stroke="#f2b6ca" stroke-width="3"/>
+<ellipse class="armL" style="transform-origin:60px 184px" cx="58" cy="206" rx="11" ry="25" fill="#fff" stroke="#f2b6ca" stroke-width="3"/>
+<ellipse class="armR" style="transform-origin:140px 184px" cx="142" cy="206" rx="11" ry="25" fill="#fff" stroke="#f2b6ca" stroke-width="3"/>
+${heart?`<g class="hold"><g fill="#ff4d79" stroke="#e0305e" stroke-width="1.2" stroke-linejoin="round">${P(HP,100,196,3)}</g><ellipse cx="86" cy="184" rx="5" ry="3" fill="#fff" opacity=".6" transform="rotate(-30 86 184)"/></g>
+<ellipse cx="68" cy="204" rx="11" ry="12" fill="#fff" stroke="#f2b6ca" stroke-width="3"/><ellipse cx="132" cy="204" rx="11" ry="12" fill="#fff" stroke="#f2b6ca" stroke-width="3"/>`:''}
+<g class="headg" style="transform-origin:100px 170px">
+<ellipse cx="100" cy="124" rx="54" ry="48" fill="#fff" stroke="#f2b6ca" stroke-width="3"/>
+<ellipse cx="62" cy="136" rx="10" ry="6.5" fill="#ff8fb0" opacity=".6"/><ellipse cx="138" cy="136" rx="10" ry="6.5" fill="#ff8fb0" opacity=".6"/>
+<ellipse cx="100" cy="130" rx="5" ry="3.6" fill="#ff7fa3"/>
+<g class="e e-open"><g class="blink"><ellipse cx="78" cy="118" rx="6.5" ry="8.5" fill="#2b1810"/><circle cx="80" cy="115" r="2.8" fill="#fff"/><ellipse cx="122" cy="118" rx="6.5" ry="8.5" fill="#2b1810"/><circle cx="124" cy="115" r="2.8" fill="#fff"/></g></g>
+<g class="e e-happy" fill="none" stroke="#2b1810" stroke-width="4.5" stroke-linecap="round"><path d="M69 121Q78 107 87 121"/><path d="M113 121Q122 107 131 121"/></g>
+<g class="e e-love" fill="#ff3b6b">${P(HP,78,119,1.05)}${P(HP,122,119,1.05)}</g>
+<g class="brow" fill="none" stroke="#a46b80" stroke-width="3.5" stroke-linecap="round"><path d="M66 106L89 100"/><path d="M111 100L134 106"/></g>
+<g fill="none" stroke="#7a3550" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path class="m m-normal" d="M91 138Q95.5 145 100 138Q104.5 145 109 138"/>
+<path class="m m-sad" d="M92 146Q100 137 108 146"/>
+<path class="m m-shy" d="M95 141Q100 144 105 141"/>
+<g class="m m-happy"><path d="M90 136Q100 158 110 136Z" fill="#e84a68"/><path d="M95 148Q100 143 105 148Q100 153 95 148" fill="#ff9aa8" stroke="none"/></g></g>
+<ellipse class="tear" cx="74" cy="130" rx="4" ry="6" fill="#8fdcff"/><ellipse class="tear t2" cx="126" cy="130" rx="4" ry="6" fill="#8fdcff"/>
+<g class="paws" fill="#fff" stroke="#f2b6ca" stroke-width="3"><ellipse cx="78" cy="119" rx="16" ry="14"/><ellipse cx="122" cy="119" rx="16" ry="14"/></g>
+</g></g></svg>`}
+
+/* ---------- scene engine ---------- */
+let locked=false;
+function typeText(el,txt,speed=36){return new Promise(res=>{const a=Array.from(txt);let i=0;el.textContent='';const t=setInterval(()=>{el.textContent=a.slice(0,++i).join('');if(i>=a.length){clearInterval(t);res()}},speed)})}
+function setCap(html){const c=$('#cap');c.innerHTML=html;gsap.fromTo(c,{scale:.85,opacity:0},{scale:1,opacity:1,duration:.55,ease:'back.out(2)'})}
+function setBtns(list,delay=.6){
+  const box=$('#btns'); box.innerHTML=''; gsap.set(box,{opacity:1}); locked=false;
+  list.forEach(b=>{
+    const w=document.createElement('div'); w.className='bw';
+    const e=document.createElement('button'); e.type='button'; e.className='btn '+(b.c||''); e.innerHTML=b.t;
+    e.onclick=()=>{ if(locked)return; locked=true; const r=e.getBoundingClientRect(); burst(r.left+r.width/2,r.top,8); b.fn(); };
+    w.appendChild(e); box.appendChild(w);
+  });
+  gsap.fromTo(box.children,{scale:0,y:30,opacity:0},{scale:1,y:0,opacity:1,duration:.6,stagger:.12,ease:'back.out(2.2)',delay});
+}
+function scene(step,cap,charHTML,btns,after){
+  const sc=$('#scene');
+  gsap.killTweensOf(sc);
+  gsap.to(sc,{opacity:0,y:-14,duration:.35,ease:'power2.in',onComplete(){
+    $('#cap').innerHTML=cap; $('#chars').innerHTML=charHTML; $('#btns').innerHTML='';
+    $$('#dots i').forEach((d,i)=>d.classList.toggle('on',i<step));
+    gsap.set(sc,{y:0,opacity:1});
+    gsap.fromTo('#cap',{y:-18,opacity:0},{y:0,opacity:1,duration:.55,ease:'power2.out'});
+    gsap.fromTo('#chars',{scale:.4,y:60,opacity:0},{scale:1,y:0,opacity:1,duration:1,ease:'elastic.out(1,.55)'});
+    if(btns.length) setBtns(btns,.8);
+    if(after) after();
+  }});
+}
+const mood=(sv,m)=>{sv.dataset.mood=m};
+function react(m,text){
+  const sv=$('#chars svg'); mood(sv,m); setCap(text);
+  gsap.to('#btns',{opacity:0,duration:.25});
+  gsap.fromTo(sv,{rotation:-7},{rotation:0,duration:.9,ease:'elastic.out(1,.3)'});
+  const r=sv.getBoundingClientRect(); burst(r.left+r.width/2,r.top+r.height/3,14);
+}
+$('#chars').addEventListener('click',e=>{
+  const sv=e.target.closest('svg'); if(!sv)return;
+  gsap.fromTo(sv,{y:0},{y:-26,duration:.18,yoyo:true,repeat:1,ease:'power2.out'});
+  burst(e.clientX,e.clientY,6);
+  const old=sv.dataset.mood; if(old==='normal'||old==='shy'){mood(sv,'happy');setTimeout(()=>mood(sv,old),900)}
+});
+
+/* ---------- the story ---------- */
+const MSG="Renuka, I'm genuinely sorry if I hurt you. You are important to me, and I never want you to feel bad because of me.";
+
+function s1(){
+  scene(1,'Renuka, are you still angry with me? 🥺',`<div class="ch">${TEDDY('normal')}</div>`,
+    [{t:'YES 😤',fn:s2a},{t:'NO ❤️',fn:s2b}]);
+}
+function s2a(){
+  scene(2,'Awww, please don\'t be angry... 🥺',`<div class="ch">${TEDDY('sad')}</div>`,
+    [{t:'Hmm… okay, bolo 🥺',fn:s3}],()=>{
+      setTimeout(()=>{const sv=$('#chars svg'); if(sv) gsap.fromTo(sv,{x:-6},{x:6,duration:.08,yoyo:true,repeat:7,ease:'none',onComplete:()=>gsap.set(sv,{x:0})})},1300);
+    });
+}
+function s2b(){
+  scene(2,'Yayyy! I knew my Renuka has the softest heart! 🎉',`<div class="ch">${TEDDY('happy')}</div>`,
+    [{t:'Continue 💗',fn:s3}],()=>{
+      setTimeout(()=>{const sv=$('#chars svg'); if(!sv)return; sv.classList.add('cheer');
+        gsap.to(sv,{y:-42,duration:.32,yoyo:true,repeat:7,ease:'power2.out',onComplete:()=>gsap.set(sv,{y:0})}); confetti(6)},1000);
+    });
+}
+function s3(){
+  scene(3,'Can I say something? 💭',`<div class="ch">${BUNNY('normal',true)}</div>`,[
+    {t:'Of course ❤️',fn:()=>{react('happy','Thank you, my love! Listen carefully… 💗');setTimeout(s4,2100)}},
+    {t:'Tell me 🥺',fn:()=>{react('shy','Okay okay… I\'m a little nervous 🙈');setTimeout(s4,2100)}}]);
+}
+function s4(){
+  scene(4,'A little letter for you 💌',`<div class="letter"><p id="l1" class="typing"></p><p id="l2"></p></div><div class="ch sm">${TEDDY('shy')}</div>`,[],async()=>{
+    await wait(1500);
+    const l1=$('#l1'); if(!l1)return; await typeText(l1,MSG,34); l1.classList.remove('typing'); await wait(450);
+    const l2=$('#l2'); l2.classList.add('typing'); await typeText(l2,'Please maaf kar do na? 🥺',55); l2.classList.remove('typing');
+    const sv=$('#chars .ch svg'); if(sv)mood(sv,'sad'); setBtns([{t:'Continue 💗',fn:s5}],.2);
+  });
+}
+function s5(){
+  scene(5,'Can we forget this little fight and smile again?',`<div class="duo">${TEDDY('normal')}${BUNNY('normal',false)}</div>`,[
+    {t:'YESSS ❤️',c:'big',fn:s6},
+    {t:'Let me think 🙈',fn:()=>{
+      const [t,b]=$$('.duo svg'); mood(b,'hide'); mood(t,'sad');
+      setCap('Take your time… Teddy will wait right here, with puppy eyes 🥹');
+      setBtns([{t:'Okay okay… YES ❤️',c:'big',fn:s6}],.5);
+    }}]);
+}
+function s6(){
+  scene(6,'',`<div class="duo apart">${TEDDY('happy')}${BUNNY('happy',false)}</div>`,[],()=>{
+    const [T,B]=$$('.duo svg'); if(!T)return;
+    const dx=(B.offsetLeft-(T.offsetLeft+T.offsetWidth))/2+T.offsetWidth*.1;
+    const tl=gsap.timeline({delay:1.4});
+    tl.to(T,{x:dx,rotation:4,duration:2.4,ease:'power2.inOut'},0)
+      .to(B,{x:-dx,rotation:-4,duration:2.4,ease:'power2.inOut'},0)
+      .add(()=>{[T,B].forEach(s=>{s.classList.add('hug');mood(s,'shy')})},1.5)
+      .to(T.querySelector('.armR'),{rotation:-80,svgOrigin:'150 130',duration:.7,ease:'back.out(1.6)'},2.2)
+      .to(B.querySelector('.armL'),{rotation:80,svgOrigin:'60 184',duration:.7,ease:'back.out(1.6)'},2.2)
+      .add(()=>{
+        [T,B].forEach(s=>mood(s,'love'));
+        setCap('One big virtual hug for you, Renuka! 🧸💗<small>Sorry again… I love you ❤️</small>');
+        confetti(7);
+        setBtns([{t:'Replay 🔁',fn:s1}],1);
+      },2.9)
+      .to([T,B],{scale:1.06,duration:.4,yoyo:true,repeat:5,ease:'sine.inOut'},3);
+  });
+}
+
+/* ---------- music ---------- */
+const aud=new Audio('song.mp3'); aud.preload='auto'; aud.play().catch(()=>{}); addEventListener('pointerdown',()=>{if(aud.paused)aud.play().catch(()=>{})},{once:true}); aud.loop=true; aud.volume=.7;
+const mus=$('#mus'), musf=$('#musf');
+const musLabel=()=>{mus.textContent=false?'🎵 Add song':(aud.paused?'🔇 Play song':'🎶 Music on')};
+mus.addEventListener('click',()=>{
+  if(aud.paused)aud.play().catch(()=>{}); else aud.pause();
+  musLabel();
+});
+musf.addEventListener('change',()=>{
+  const f=musf.files&&musf.files[0]; if(!f)return;
+  aud.src=URL.createObjectURL(f); aud.play().catch(()=>{}); musLabel();
+});
+aud.addEventListener('play',musLabel); aud.addEventListener('pause',musLabel);
+
+/* ---------- intro ---------- */
+function split(el,txt){Array.from(txt).forEach(ch=>{const s=document.createElement('span');s.className='hl';s.innerHTML=ch===' '?'&nbsp;':ch;el.appendChild(s)})}
+split($('#la'),'HEY'); split($('#lb'),'RENUKA! ❤️');
+ambient($('#introFx'),.35,700,900);
+ambient($('#fx'),.75,600,650);
+(async function intro(){
+  const L=gsap.utils.toArray('#hey .hl');
+  gsap.from(L,{y:90,scale:0,rotation:()=>gsap.utils.random(-40,40),opacity:0,duration:.9,ease:'back.out(2.4)',stagger:.07,
+    onComplete:()=>gsap.to(L,{y:-8,duration:.8,yoyo:true,repeat:-1,ease:'sine.inOut',stagger:.1})});
+  await wait(2000);
+  await typeText($('#sub'),'Someone has a little something to tell you...',48);
+  await wait(300);
+  const b=$('#open'); b.hidden=false; gsap.from(b,{scale:0,opacity:0,duration:.7,ease:'back.out(2.5)'});
+})();
+$('#open').addEventListener('click',()=>{
+  $('#open').disabled=true; if(aud.src&&aud.paused)aud.play().catch(()=>{});
+  const w=$('#wipe'); w.hidden=false; burst(innerWidth/2,innerHeight*.7,18);
+  gsap.to('#wipe svg',{scale:42,duration:1.1,ease:'power3.in',onComplete(){
+    $('#intro').hidden=true; $('#stage').hidden=false; s1();
+    gsap.to('#wipe',{opacity:0,duration:.7,onComplete:()=>w.hidden=true});
+  }});
+});
+</script>
+
+</body></html>
